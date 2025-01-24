@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4u5318gr0unv"]
+
+[ext_resource type="Script" path="res://source/objects/light_buld.gd" id="1_qf4yr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64llh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_stvuc"]
+material = SubResource("StandardMaterial3D_64llh")
+size = Vector3(0.06, 0.1, 0.06)
+
+[node name="LightBuld" type="Node3D"]
+script = ExtResource("1_qf4yr")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+omni_range = 50.0
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_stvuc")

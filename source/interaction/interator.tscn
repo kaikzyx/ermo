@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://81lefgeu0y0d"]
+
+[ext_resource type="Script" path="res://source/interaction/interator.gd" id="1_1jrh7"]
+
+[node name="Interator" type="RayCast3D"]
+target_position = Vector3(0, 0, -0.7)
+collision_mask = 4
+collide_with_areas = true
+script = ExtResource("1_1jrh7")

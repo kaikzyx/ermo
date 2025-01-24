@@ -1,13 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca0s6nwdkrvfw"]
+[gd_scene load_steps=5 format=3 uid="uid://ca0s6nwdkrvfw"]
 
 [ext_resource type="PackedScene" uid="uid://bdp78c0tt0nxf" path="res://source/map/map.tscn" id="1_sdtj2"]
 [ext_resource type="Script" path="res://source/main.gd" id="1_yqr8r"]
 [ext_resource type="PackedScene" uid="uid://dj0iyk8t13mtc" path="res://source/player/player.tscn" id="2_7tfq4"]
 
-[node name="Main" type="Node3D"]
+[sub_resource type="Environment" id="Environment_mdpnj"]
+background_mode = 1
+background_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("actor")]
 script = ExtResource("1_yqr8r")
+actor = NodePath("Player")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mdpnj")
 
 [node name="Map" parent="." instance=ExtResource("1_sdtj2")]
 
 [node name="Player" parent="." instance=ExtResource("2_7tfq4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13575, 0)
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Interface"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reticula" type="ColorRect" parent="Interface/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.25
+offset_top = -0.5
+offset_right = 1.25
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Prompt" type="Label" parent="Interface/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = 35.0
+offset_right = 112.5
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 15
+text = "grgerhrehheherhbtrthr"
+horizontal_alignment = 1
+vertical_alignment = 1

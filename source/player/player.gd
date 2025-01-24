@@ -2,9 +2,9 @@ class_name Player extends CharacterBody3D
 
 var speed: float = 5.0
 
-@onready var _camera: Camera3D = $Camera
-static var _camera_threshold: float = deg_to_rad(70.0)
+@onready var _head: Node3D = $Head
 static var _mouse_sensitivity: float = 0.001
+static var _camera_threshold: float = deg_to_rad(70.0)
 
 func _physics_process(delta: float) -> void:
 	# Movement logic.
@@ -24,5 +24,5 @@ func _input(event):
 		# Fist person camera logic.
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			rotate_y(-event.relative.x * _mouse_sensitivity)
-			_camera.rotate_x(-event.relative.y * _mouse_sensitivity)
-			_camera.rotation.x = clampf(_camera.rotation.x, -_camera_threshold, _camera_threshold)
+			_head.rotate_x(-event.relative.y * _mouse_sensitivity)
+			_head.rotation.x = clampf(_head.rotation.x, -_camera_threshold, _camera_threshold)

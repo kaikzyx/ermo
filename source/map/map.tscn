@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdp78c0tt0nxf"]
+[gd_scene load_steps=4 format=3 uid="uid://bdp78c0tt0nxf"]
 
 [ext_resource type="MeshLibrary" uid="uid://d4g23fr0wjfo" path="res://assets/tile_set.tres" id="1_rkriy"]
+[ext_resource type="PackedScene" uid="uid://cak0xen2x4vpj" path="res://source/objects/interactables/light_switch.tscn" id="2_4ohdw"]
+[ext_resource type="PackedScene" uid="uid://c4u5318gr0unv" path="res://source/objects/light_buld.tscn" id="3_eeqq3"]
 
 [node name="Map" type="Node3D"]
 
@@ -15,6 +17,9 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 5, 0)
 
-[node name="Light" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
-omni_range = 50.0
+[node name="LightSwitch" parent="." node_paths=PackedStringArray("light_buld") instance=ExtResource("2_4ohdw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -3.5)
+light_buld = NodePath("../LightBuld")
+
+[node name="LightBuld" parent="." instance=ExtResource("3_eeqq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.975, 0)
