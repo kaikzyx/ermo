@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ytv111l40sqa"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_urb6k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4dd2i"]
+
+[node name="TileSet" type="Node3D"]
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_urb6k")
+
+[node name="Static" type="StaticBody3D" parent="Cube"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape3D" parent="Cube/Static"]
+shape = SubResource("BoxShape3D_4dd2i")
