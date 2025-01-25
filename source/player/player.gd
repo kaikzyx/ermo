@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody3D
 
-var speed: float = 5.0
+var speed: float = 2.5
+var acceleration: float = 7.5
 
 @onready var _head: Node3D = $Head
 static var _mouse_sensitivity: float = 0.001
@@ -8,9 +9,9 @@ static var _camera_threshold: float = deg_to_rad(70.0)
 
 func _physics_process(delta: float) -> void:
 	# Movement logic.
-	var input: Vector2 = Input.get_vector(&"move_left", &"move_right", &"move_front", &"move_back")
+	var input: Vector2 = Input.get_vector(&"left", &"right", &"forward", &"backward")
 	var movement: Vector3 = Vector3(input.x, 0.0, input.y).rotated(Vector3.UP, rotation.y)
-	var goal: Vector3 = velocity.lerp(movement * speed, delta * 10.0)
+	var goal: Vector3 = velocity.lerp(movement * speed, acceleration * delta)
 	velocity = Vector3(goal.x, velocity.y, goal.z)
 
 	# Gravity logic.
