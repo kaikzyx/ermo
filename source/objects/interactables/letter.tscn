@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7ln0150vyphq"]
+
+[ext_resource type="Script" path="res://source/objects/interactables/readable.gd" id="1_3uxov"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wqsol"]
+size = Vector3(0.21, 0.148, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcwni"]
+albedo_color = Color(1, 1, 0.498039, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hsi47"]
+material = SubResource("StandardMaterial3D_fcwni")
+size = Vector3(0.21, 0.148, 0.01)
+
+[node name="Letter" type="Area3D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_3uxov")
+content = "The key to the exit is not in strength, but in perception. You don't need to run away, but understand. Everything you see here is a reflection of what you don't understand about yourself. Start with the clock. He doesn't just tell time... he reveals the moment."
+message = &"Read the letter"
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_wqsol")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_hsi47")
