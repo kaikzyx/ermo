@@ -13,7 +13,7 @@ size = Vector3(0.21, 0.148, 0.01)
 
 [sub_resource type="Resource" id="Resource_raku8"]
 script = ExtResource("3_uwuej")
-content = "The key to the exit is not in strength, but in perception. You don't need to run away, but understand. Everything you see here is a reflection of what you don't understand about yourself. Start with the clock. He doesn't just tell time... he reveals the moment."
+content = "Sic mundus creatus est."
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wqsol"]
 size = Vector3(0.21, 0.148, 0.01)
