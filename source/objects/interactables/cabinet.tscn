@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://rl7a11lbjxog"]
+
+[ext_resource type="PackedScene" uid="uid://durji13r85fax" path="res://source/interaction/interactable.tscn" id="1_3kktx"]
+[ext_resource type="Script" path="res://source/interaction/interactions/interaction.gd" id="2_7rjd1"]
+[ext_resource type="Script" path="res://source/interaction/interactions/messageable.gd" id="3_4osr4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jefjq"]
+size = Vector3(0.8, 1.1, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61uqw"]
+albedo_color = Color(0.266667, 0.168627, 0.109804, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2yes2"]
+material = SubResource("StandardMaterial3D_61uqw")
+size = Vector3(0.8, 1.1, 0.5)
+
+[sub_resource type="Resource" id="Resource_qsuax"]
+script = ExtResource("3_4osr4")
+message = "It is locked."
+
+[node name="Cabinet" type="StaticBody3D"]
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jefjq")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2yes2")
+
+[node name="Interactable" parent="." instance=ExtResource("1_3kktx")]
+message = &"Open."
+interactions = Array[ExtResource("2_7rjd1")]([SubResource("Resource_qsuax")])
+
+[node name="Collision" type="CollisionShape3D" parent="Interactable"]
+shape = SubResource("BoxShape3D_jefjq")

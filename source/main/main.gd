@@ -1,6 +1,7 @@
 class_name Main extends Node3D
 
 @onready var interface: CanvasLayer = $Interface
+@onready var messages: MessagesInterface = $Interface/MessagesInterface
 var resting: bool = true
 
 var _scene_aim_interface: PackedScene = load("res://source/interface/aim_interface.tscn")

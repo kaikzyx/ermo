@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca0s6nwdkrvfw"]
+[gd_scene load_steps=6 format=3 uid="uid://ca0s6nwdkrvfw"]
 
 [ext_resource type="PackedScene" uid="uid://bdp78c0tt0nxf" path="res://source/map/map.tscn" id="1_sdtj2"]
 [ext_resource type="Script" path="res://source/main/main.gd" id="1_yqr8r"]
 [ext_resource type="PackedScene" uid="uid://dj0iyk8t13mtc" path="res://source/player/player.tscn" id="2_7tfq4"]
+[ext_resource type="PackedScene" uid="uid://bccth4htsbm6p" path="res://source/interface/messages_interface.tscn" id="4_fo10k"]
 
 [sub_resource type="Environment" id="Environment_mdpnj"]
 background_mode = 1
@@ -22,3 +23,5 @@ environment = SubResource("Environment_mdpnj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13575, 0)
 
 [node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="MessagesInterface" parent="Interface" instance=ExtResource("4_fo10k")]
