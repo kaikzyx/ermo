@@ -1,8 +1,18 @@
-class_name LightSwitch extends Interactable
+class_name LightSwitch extends Node3D
 
 @export var light_buld: LightBuld
+@export var on: bool = true
+
+@onready var _interactable: Interactable = $Interactable
 
 func _ready() -> void:
-	interacted.connect(func(_interator: Interator) -> void:
-		if is_instance_valid(light_buld):
-			light_buld.toggle(not light_buld.on))
+	turn(true)
+
+	_interactable.interacted.connect(func(_interator: Interator) -> void: turn(not on))
+
+func turn(enable: bool) -> void:
+	on = enable
+	_interactable.message = &"Turn off." if enable else &"Turn on."
+
+	if is_instance_valid(light_buld):
+		light_buld.toggle(enable)

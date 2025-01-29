@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7ln0150vyphq"]
+[gd_scene load_steps=8 format=3 uid="uid://c7ln0150vyphq"]
 
-[ext_resource type="Script" path="res://source/objects/interactables/readable.gd" id="1_3uxov"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wqsol"]
-size = Vector3(0.21, 0.148, 0.01)
+[ext_resource type="PackedScene" uid="uid://durji13r85fax" path="res://source/interaction/interactable.tscn" id="1_sgo72"]
+[ext_resource type="Script" path="res://source/interaction/interactions/interaction.gd" id="2_ktib5"]
+[ext_resource type="Script" path="res://source/interaction/interactions/readable.gd" id="3_uwuej"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcwni"]
 albedo_color = Color(1, 1, 0.498039, 1)
@@ -12,15 +11,21 @@ albedo_color = Color(1, 1, 0.498039, 1)
 material = SubResource("StandardMaterial3D_fcwni")
 size = Vector3(0.21, 0.148, 0.01)
 
-[node name="Letter" type="Area3D"]
-collision_layer = 4
-collision_mask = 3
-script = ExtResource("1_3uxov")
+[sub_resource type="Resource" id="Resource_raku8"]
+script = ExtResource("3_uwuej")
 content = "The key to the exit is not in strength, but in perception. You don't need to run away, but understand. Everything you see here is a reflection of what you don't understand about yourself. Start with the clock. He doesn't just tell time... he reveals the moment."
-message = &"Read the letter"
 
-[node name="Collision" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_wqsol")
+[sub_resource type="BoxShape3D" id="BoxShape3D_wqsol"]
+size = Vector3(0.21, 0.148, 0.01)
+
+[node name="Letter" type="Node3D"]
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_hsi47")
+
+[node name="Interactable" parent="." instance=ExtResource("1_sgo72")]
+message = &"Read."
+interactions = Array[ExtResource("2_ktib5")]([SubResource("Resource_raku8")])
+
+[node name="Collision" type="CollisionShape3D" parent="Interactable"]
+shape = SubResource("BoxShape3D_wqsol")

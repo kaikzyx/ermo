@@ -11,9 +11,9 @@ size = Vector3(0.06, 0.1, 0.06)
 [node name="LightBuld" type="Node3D"]
 script = ExtResource("1_qf4yr")
 
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_stvuc")
+
 [node name="Light" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 omni_range = 50.0
-
-[node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_stvuc")

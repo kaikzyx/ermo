@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cak0xen2x4vpj"]
+[gd_scene load_steps=8 format=3 uid="uid://cak0xen2x4vpj"]
 
 [ext_resource type="Script" path="res://source/objects/interactables/light_switch.gd" id="1_2wyi3"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dl48s"]
-size = Vector3(0.07, 0.11, 0)
+[ext_resource type="PackedScene" uid="uid://durji13r85fax" path="res://source/interaction/interactable.tscn" id="2_weubv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlcoh"]
 albedo_color = Color(1, 1, 0.74902, 1)
@@ -18,14 +16,11 @@ size = Vector3(0.07, 0.11, 0.01)
 material = SubResource("StandardMaterial3D_2duso")
 size = Vector3(0.01, 0.02, 0.005)
 
-[node name="LightSwitch" type="Area3D"]
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("1_2wyi3")
-message = &"Light switch."
+[sub_resource type="BoxShape3D" id="BoxShape3D_dl48s"]
+size = Vector3(0.07, 0.11, 0)
 
-[node name="Collision" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_dl48s")
+[node name="LightSwitch" type="Node3D"]
+script = ExtResource("1_2wyi3")
 
 [node name="Mesh" type="Node3D" parent="."]
 
@@ -37,3 +32,8 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.007)
 mesh = SubResource("BoxMesh_6yx3y")
 skeleton = NodePath("../..")
+
+[node name="Interactable" parent="." instance=ExtResource("2_weubv")]
+
+[node name="Collision" type="CollisionShape3D" parent="Interactable"]
+shape = SubResource("BoxShape3D_dl48s")
