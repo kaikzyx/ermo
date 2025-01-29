@@ -19,7 +19,6 @@ script = ExtResource("3_4osr4")
 message = "It is locked."
 
 [node name="Cabinet" type="StaticBody3D"]
-collision_mask = 0
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_jefjq")
