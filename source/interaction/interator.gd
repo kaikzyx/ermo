@@ -4,7 +4,7 @@ signal focus_entered(interactable: Interactable)
 signal focus_exited(interactable: Interactable)
 signal interacted(interactable: Interactable, successful: bool)
 
-var focus: Interactable
+var focus: Interactable = null
 
 func _process(_delta: float) -> void:
 	var collider: Object = get_collider() if is_colliding() else null

@@ -1,6 +1,6 @@
 class_name LightSwitch extends Node3D
 
-@export var light_buld: LightBuld
+@export var light_buld: LightBuld = null
 @export var on: bool = true
 
 @onready var _interactable: Interactable = $Interactable
