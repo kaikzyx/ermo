@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://b4jrtjatk8baa"]
+
+[ext_resource type="Script" path="res://source/item/item.gd" id="1_fyuqp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3uk3"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4sos2"]
+material = SubResource("StandardMaterial3D_g3uk3")
+size = Vector3(0.013, 0.1, 0.25)
+
+[resource]
+script = ExtResource("1_fyuqp")
+name = &"Key"
+mesh = SubResource("BoxMesh_4sos2")

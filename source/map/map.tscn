@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdp78c0tt0nxf"]
+[gd_scene load_steps=8 format=3 uid="uid://bdp78c0tt0nxf"]
 
 [ext_resource type="MeshLibrary" uid="uid://d4g23fr0wjfo" path="res://assets/tile_set.tres" id="1_rkriy"]
 [ext_resource type="PackedScene" uid="uid://cak0xen2x4vpj" path="res://source/objects/interactables/light_switch.tscn" id="2_4ohdw"]
 [ext_resource type="PackedScene" uid="uid://c4u5318gr0unv" path="res://source/objects/light_buld.tscn" id="3_eeqq3"]
 [ext_resource type="PackedScene" uid="uid://c7ln0150vyphq" path="res://source/objects/interactables/letter.tscn" id="4_p4yew"]
 [ext_resource type="PackedScene" uid="uid://rl7a11lbjxog" path="res://source/objects/interactables/cabinet.tscn" id="5_nwskd"]
+[ext_resource type="PackedScene" uid="uid://dae0k42pdr8i3" path="res://source/objects/item_object/item_object.tscn" id="6_hk1ym"]
+[ext_resource type="Resource" uid="uid://b4jrtjatk8baa" path="res://assets/items/key.tres" id="7_6eg0r"]
 
 [node name="Map" type="Node3D"]
 
@@ -31,3 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5, -3.49)
 
 [node name="Cabinet" parent="." instance=ExtResource("5_nwskd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -3.2)
+
+[node name="Key" parent="." instance=ExtResource("6_hk1ym")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0174439, 1.28778, -3.20373)
+item = ExtResource("7_6eg0r")

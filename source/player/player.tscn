@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj0iyk8t13mtc"]
+[gd_scene load_steps=7 format=3 uid="uid://dj0iyk8t13mtc"]
 
 [ext_resource type="Script" path="res://source/player/player.gd" id="1_771hv"]
 [ext_resource type="PackedScene" uid="uid://81lefgeu0y0d" path="res://source/interaction/interator.tscn" id="2_28pyk"]
+[ext_resource type="Script" path="res://source/player/inventory/inventory.gd" id="3_5tg40"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pe5mb"]
 radius = 0.28
@@ -31,3 +32,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.865, -0.2)
 [node name="Interator" parent="Head" instance=ExtResource("2_28pyk")]
 
 [node name="Camera" type="Camera3D" parent="Head"]
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("3_5tg40")
+minimun = 5

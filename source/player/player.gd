@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody3D
 
 @onready var interator: Interator = $Head/Interator
+@onready var inventory: Inventory = $Inventory
 var speed: float = 2.5
 var acceleration: float = 7.5
 var controllable: bool = true
