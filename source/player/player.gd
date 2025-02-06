@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		# Fist person camera logic.
 		if controllable and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
