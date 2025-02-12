@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca0s6nwdkrvfw"]
+[gd_scene load_steps=12 format=3 uid="uid://ca0s6nwdkrvfw"]
 
 [ext_resource type="Script" path="res://source/core/main_ui.gd" id="1_ka4x0"]
 [ext_resource type="PackedScene" uid="uid://bdp78c0tt0nxf" path="res://source/map/map.tscn" id="2_ufxb3"]
 [ext_resource type="PackedScene" uid="uid://dj0iyk8t13mtc" path="res://source/player/player.tscn" id="3_xjm8s"]
+[ext_resource type="PackedScene" uid="uid://c2k61d5pgd0l5" path="res://source/core/aim_ui.tscn" id="4_cta50"]
 [ext_resource type="PackedScene" uid="uid://bccth4htsbm6p" path="res://source/core/information_ui.tscn" id="4_rcc1l"]
 [ext_resource type="Shader" path="res://assets/shaders/vignette.gdshader" id="5_sp8sp"]
+[ext_resource type="PackedScene" uid="uid://b8b4msvg6dysm" path="res://source/core/processor_ui.tscn" id="6_hwevm"]
 [ext_resource type="PackedScene" uid="uid://bwaupboxwraat" path="res://source/inventory/inventory_ui.tscn" id="6_jyt6k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1238r"]
@@ -84,6 +86,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+
+[node name="AimUI" parent="Container/Margin/Canvas/Screen" instance=ExtResource("4_cta50")]
+layout_mode = 1
+
+[node name="ProcessorUI" parent="Container/Margin/Canvas/Screen" instance=ExtResource("6_hwevm")]
+layout_mode = 1
 
 [node name="InformationUI" parent="Container/Margin/Canvas/Screen" instance=ExtResource("4_rcc1l")]
 layout_mode = 1

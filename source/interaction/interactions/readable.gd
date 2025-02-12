@@ -8,12 +8,6 @@ func interact(_interator: Interator) -> bool:
 	# Create a readable ui when interacting.
 	var readable_ui: ReadableUI = _scene_readable_ui.instantiate()
 	readable_ui.interaction = self
-
-	readable_ui.exited.connect(func() -> void:
-		readable_ui.queue_free()
-		Global.main.rest(false))
-
-	Global.main.screen.add_child(readable_ui)
-	Global.main.rest(true)
+	Global.main.processor.process(readable_ui)
 
 	return true

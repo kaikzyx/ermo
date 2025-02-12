@@ -20,16 +20,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.74902)
 
-[node name="ExitMessage" type="Label" parent="."]
-layout_mode = 1
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 26.0
-offset_bottom = 47.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 10
-
 [node name="Content" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1

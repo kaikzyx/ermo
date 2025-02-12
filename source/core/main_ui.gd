@@ -1,20 +1,21 @@
 class_name MainUI extends CanvasLayer
 
-@onready var screen: Control = $Container/Margin/Canvas/Screen
+@onready var processor: ProcessorUI = $Container/Margin/Canvas/Screen/ProcessorUI
 @onready var information: InformationUI = $Container/Margin/Canvas/Screen/InformationUI
-var resting: bool = true
+var resting: bool = false: set = _set_resting
 
 @onready var _viewport: SubViewport = $Container/Margin/Canvas/ViewportContainer/Viewport
+@onready var _aim_ui: AimUI = $Container/Margin/Canvas/Screen/AimUI
 @onready var _inventory_ui: InventoryUI = $Container/SideBar/Margin/InventoryUI
-var _scene_aim_ui: PackedScene = preload("res://source/core/aim_ui.tscn")
-var _control_aim_ui: AimUI = null
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Global.main = self
-	rest(false)
 
-	# Inventory ui.
+	processor.started_processing.connect(_on_processor_started_processing)
+	processor.stopped_processing.connect(_on_processor_stopped_processing)
+	processor.hide()
+
 	_inventory_ui.initialize(Global.actor.inventory)
 
 func _input(event: InputEvent) -> void:
@@ -26,22 +27,23 @@ func _input(event: InputEvent) -> void:
 		if event.pressed and event.keycode == KEY_ESCAPE:
 			var captured: bool = Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if captured else Input.MOUSE_MODE_CAPTURED
-			rest(captured)
+			resting = captured
 
-func rest(enable: bool) -> void:
-	# Toggle rest mode.
-	if resting != enable:
-		resting = enable
+func _set_resting(value: bool) -> void:
+	# Does not change "resting" to false if there is still a process.
+	if processor.processing() and value == false: return
 
-		if enable:
-			# Remove the aim ui when rest.
-			if is_instance_valid(_control_aim_ui):
-				_control_aim_ui.queue_free()
-		else:
-			# Create the aim ui when stop rest.
-			_control_aim_ui = _scene_aim_ui.instantiate()
-			screen.add_child(_control_aim_ui)
+	resting = value
+	_aim_ui.visible = not resting
 
-		if is_instance_valid(Global.actor):
-			Global.actor.controllable = not enable
-			Global.actor.interator.enabled = not enable
+	if is_instance_valid(Global.actor):
+		Global.actor.controllable = not resting
+		Global.actor.interator.enabled = not resting
+
+func _on_processor_started_processing() -> void:
+	processor.show()
+	resting = true
+
+func _on_processor_stopped_processing() -> void:
+	processor.hide()
+	resting = false
