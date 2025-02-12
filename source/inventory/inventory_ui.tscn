@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwaupboxwraat"]
+
+[ext_resource type="Script" path="res://source/inventory/inventory_ui.gd" id="1_c32dy"]
+
+[node name="InventoryUI" type="ScrollContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("1_c32dy")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_constants/separation = 16
+alignment = 1

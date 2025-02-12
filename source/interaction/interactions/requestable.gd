@@ -9,14 +9,11 @@ func interact(interator: Interator) -> bool:
 		var node: Node = interator.owner
 
 		if node is Player:
-			var index: int = node.inventory.request(item)
-
-			if index != -1:
-				node.inventory.remove(index)
-				Global.main.messages.sent(message_has)
+			if node.inventory.request(item):
+				Global.main.information.sent(message_has, InformationInterface.Information.MESSAGE)
 				return true
 
-	Global.main.messages.sent(message_not_has)
+	Global.main.information.sent(message_not_has, InformationInterface.Information.MESSAGE)
 	return false
 
 func life() -> bool:

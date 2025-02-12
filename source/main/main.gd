@@ -1,9 +1,11 @@
-class_name Main extends Node3D
+class_name Main extends CanvasLayer
 
-@onready var interface: CanvasLayer = $Interface
-@onready var messages: MessagesInterface = $Interface/MessagesInterface
+@onready var interface: Control = $Container/Margin/Screen/Interface
+@onready var information: InformationInterface = $Container/Margin/Screen/Interface/InformationInterface
 var resting: bool = true
 
+@onready var _viewport: SubViewport = $Container/Margin/Screen/ViewportContainer/Viewport
+@onready var _inventory_ui: InventoryUI = $Container/SideBar/Margin/InventoryUI
 var _scene_aim_interface: PackedScene = load("res://source/interface/aim_interface.tscn")
 var _control_aim_interface: AimInterface = null
 
@@ -12,12 +14,19 @@ func _ready() -> void:
 	Global.main = self
 	rest(false)
 
+	# Inventory interface.
+	_inventory_ui.initialize(Global.actor.inventory)
+
 func _input(event: InputEvent) -> void:
+	# Activates inputs to the viewport.
+	_viewport.push_input(event)
+
 	if event is InputEventKey:
 		# Toggle mouse mode between captured and visible.
 		if event.pressed and event.keycode == KEY_ESCAPE:
 			var captured: bool = Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if captured else Input.MOUSE_MODE_CAPTURED
+			rest(captured)
 
 func rest(enable: bool) -> void:
 	# Toggle rest mode.

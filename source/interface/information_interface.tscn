@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bccth4htsbm6p"]
+
+[ext_resource type="Script" path="res://source/interface/information_interface.gd" id="1_vac74"]
+
+[node name="InformationInterface" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+script = ExtResource("1_vac74")
+
+[node name="Informations" type="Control" parent="."]
+layout_mode = 2
+
+[node name="MessagesInformationsContainer" type="VBoxContainer" parent="Informations"]
+layout_mode = 1
+
+[node name="ItemInformationsContainer" type="VBoxContainer" parent="Informations"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
