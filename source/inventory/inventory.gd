@@ -14,6 +14,9 @@ func _ready() -> void:
 	_slots.resize(minimum_slots)
 
 func insert(item: Item) -> void:
+	# Verify if item already exists on inventory.
+	assert(not _slots.has(item), "The inventory must not contain identical items.")
+
 	# Try to fill existing empty slots first.
 	for index in _slots.size():
 		if _slots[index] == null:

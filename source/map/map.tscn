@@ -37,39 +37,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -3.2)
 [node name="Key" parent="." instance=ExtResource("6_hk1ym")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0174439, 1.28778, -3.20373)
 item = ExtResource("7_6eg0r")
-
-[node name="Key2" parent="." instance=ExtResource("6_hk1ym")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0174439, 1.28778, -3.20373)
-item = ExtResource("7_6eg0r")
-
-[node name="Key3" parent="." instance=ExtResource("6_hk1ym")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0174439, 1.28778, -3.20373)
-item = ExtResource("7_6eg0r")
-
-[node name="Key4" parent="." instance=ExtResource("6_hk1ym")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0174439, 1.28778, -3.20373)
-item = ExtResource("7_6eg0r")
-
-[node name="Key5" parent="." instance=ExtResource("6_hk1ym")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0174439, 1.28778, -3.20373)
-item = ExtResource("7_6eg0r")
-
-[node name="Key6" parent="." instance=ExtResource("6_hk1ym")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0174439, 1.28778, -3.20373)
-item = ExtResource("7_6eg0r")
-
-[node name="Key7" parent="." instance=ExtResource("6_hk1ym")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0174439, 1.28778, -3.20373)
-item = ExtResource("7_6eg0r")
-
-[node name="Key8" parent="." instance=ExtResource("6_hk1ym")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0174439, 1.28778, -3.20373)
-item = ExtResource("7_6eg0r")
-
-[node name="Key9" parent="." instance=ExtResource("6_hk1ym")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0174439, 1.28778, -3.20373)
-item = ExtResource("7_6eg0r")
-
-[node name="Key10" parent="." instance=ExtResource("6_hk1ym")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0174439, 1.28778, -3.20373)
-item = ExtResource("7_6eg0r")
