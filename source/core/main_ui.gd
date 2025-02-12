@@ -6,7 +6,7 @@ var resting: bool = true
 
 @onready var _viewport: SubViewport = $Container/Margin/Canvas/ViewportContainer/Viewport
 @onready var _inventory_ui: InventoryUI = $Container/SideBar/Margin/InventoryUI
-var _scene_aim_ui: PackedScene = load("res://source/core/aim_ui.tscn")
+var _scene_aim_ui: PackedScene = preload("res://source/core/aim_ui.tscn")
 var _control_aim_ui: AimUI = null
 
 func _ready() -> void:
@@ -39,9 +39,8 @@ func rest(enable: bool) -> void:
 				_control_aim_ui.queue_free()
 		else:
 			# Create the aim ui when stop rest.
-			if _scene_aim_ui.can_instantiate():
-				_control_aim_ui = _scene_aim_ui.instantiate()
-				screen.add_child(_control_aim_ui)
+			_control_aim_ui = _scene_aim_ui.instantiate()
+			screen.add_child(_control_aim_ui)
 
 		if is_instance_valid(Global.actor):
 			Global.actor.controllable = not enable
