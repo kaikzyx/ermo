@@ -1,5 +1,4 @@
-class_name AimInterface extends Control
-
+class_name AimUI extends Control
 
 @onready var _label_interactable_name: Label = $InteractionContainer/InteractableContainer/InteractableName
 @onready var _label_interactable_message: Label = $InteractionContainer/InteractableContainer/InteractableMessage

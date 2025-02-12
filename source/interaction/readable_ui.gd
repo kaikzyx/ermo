@@ -1,4 +1,4 @@
-class_name ReadableInterface extends InteractableInterface
+class_name ReadableUI extends InteractableUI
 
 @onready var _label_exit_message: Label = $ExitMessage
 @onready var _label_content: Label = $Content

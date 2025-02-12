@@ -1,6 +1,5 @@
 class_name InventoryUI extends ScrollContainer
 
-
 @onready var _container: VBoxContainer = $Container
 var _scene_inventory_slot_ui: PackedScene = preload("res://source/inventory/inventory_slot_ui.tscn")
 var _inventory: Inventory = null
@@ -72,7 +71,7 @@ func _on_slot_refreshed(index: int) -> void:
 
 func _on_slot_inserted(index: int, leaking: bool) -> void:
 	var item: Item = _inventory.get_item(index)
-	Global.main.information.sent(item.name, InformationInterface.Information.ITEM)
+	Global.main.information.sent(item.name, InformationUI.Information.ITEM)
 
 	if leaking: _create_inventory_slot_ui(_inventory.size()).refresh(item)
 
@@ -91,4 +90,4 @@ func _on_slot_selected(from: int, to: int) -> void:
 		inventory_slot_ui.grab_focus()
 
 		if inventory_slot_ui.has_item:
-			Global.main.information.sent(_inventory.get_item(to).name, InformationInterface.Information.ITEM)
+			Global.main.information.sent(_inventory.get_item(to).name, InformationUI.Information.ITEM)

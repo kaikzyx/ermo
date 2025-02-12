@@ -10,10 +10,10 @@ func interact(interator: Interator) -> bool:
 
 		if node is Player:
 			if node.inventory.request(item):
-				Global.main.information.sent(message_has, InformationInterface.Information.MESSAGE)
+				Global.main.information.sent(message_has, InformationUI.Information.MESSAGE)
 				return true
 
-	Global.main.information.sent(message_not_has, InformationInterface.Information.MESSAGE)
+	Global.main.information.sent(message_not_has, InformationUI.Information.MESSAGE)
 	return false
 
 func life() -> bool:

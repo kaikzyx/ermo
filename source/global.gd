@@ -1,6 +1,6 @@
 extends Node
 
-var main: Main = null
+var main: MainUI = null
 var actor: Player = null
 
 func get_prompt(action: StringName) -> StringName:

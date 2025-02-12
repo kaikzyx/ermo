@@ -1,4 +1,4 @@
-class_name InteractableInterface extends Control
+class_name InteractableUI extends Control
 
 signal exited()
 

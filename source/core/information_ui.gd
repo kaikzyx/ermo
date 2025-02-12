@@ -1,4 +1,4 @@
-class_name InformationInterface extends Control
+class_name InformationUI extends Control
 
 enum Information { MESSAGE, ITEM }
 

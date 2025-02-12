@@ -1,20 +1,20 @@
-class_name Main extends CanvasLayer
+class_name MainUI extends CanvasLayer
 
-@onready var interface: Control = $Container/Margin/Screen/Interface
-@onready var information: InformationInterface = $Container/Margin/Screen/Interface/InformationInterface
+@onready var screen: Control = $Container/Margin/Canvas/Screen
+@onready var information: InformationUI = $Container/Margin/Canvas/Screen/InformationUI
 var resting: bool = true
 
-@onready var _viewport: SubViewport = $Container/Margin/Screen/ViewportContainer/Viewport
+@onready var _viewport: SubViewport = $Container/Margin/Canvas/ViewportContainer/Viewport
 @onready var _inventory_ui: InventoryUI = $Container/SideBar/Margin/InventoryUI
-var _scene_aim_interface: PackedScene = load("res://source/interface/aim_interface.tscn")
-var _control_aim_interface: AimInterface = null
+var _scene_aim_ui: PackedScene = load("res://source/core/aim_ui.tscn")
+var _control_aim_ui: AimUI = null
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Global.main = self
 	rest(false)
 
-	# Inventory interface.
+	# Inventory ui.
 	_inventory_ui.initialize(Global.actor.inventory)
 
 func _input(event: InputEvent) -> void:
@@ -34,14 +34,14 @@ func rest(enable: bool) -> void:
 		resting = enable
 
 		if enable:
-			# Remove the aim interface when rest.
-			if is_instance_valid(_control_aim_interface):
-				_control_aim_interface.queue_free()
+			# Remove the aim ui when rest.
+			if is_instance_valid(_control_aim_ui):
+				_control_aim_ui.queue_free()
 		else:
-			# Create the aim interface when stop rest.
-			if _scene_aim_interface.can_instantiate():
-				_control_aim_interface = _scene_aim_interface.instantiate()
-				interface.add_child(_control_aim_interface)
+			# Create the aim ui when stop rest.
+			if _scene_aim_ui.can_instantiate():
+				_control_aim_ui = _scene_aim_ui.instantiate()
+				screen.add_child(_control_aim_ui)
 
 		if is_instance_valid(Global.actor):
 			Global.actor.controllable = not enable

@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://ca0s6nwdkrvfw"]
 
-[ext_resource type="PackedScene" uid="uid://bdp78c0tt0nxf" path="res://source/map/map.tscn" id="1_sdtj2"]
-[ext_resource type="Script" path="res://source/main/main.gd" id="1_yqr8r"]
-[ext_resource type="PackedScene" uid="uid://dj0iyk8t13mtc" path="res://source/player/player.tscn" id="2_7tfq4"]
-[ext_resource type="Shader" path="res://assets/shaders/vignette.gdshader" id="2_mjw31"]
-[ext_resource type="PackedScene" uid="uid://bccth4htsbm6p" path="res://source/interface/information_interface.tscn" id="4_fo10k"]
-[ext_resource type="PackedScene" uid="uid://bwaupboxwraat" path="res://source/inventory/inventory_ui.tscn" id="6_nbyew"]
+[ext_resource type="Script" path="res://source/core/main_ui.gd" id="1_ka4x0"]
+[ext_resource type="PackedScene" uid="uid://bdp78c0tt0nxf" path="res://source/map/map.tscn" id="2_ufxb3"]
+[ext_resource type="PackedScene" uid="uid://dj0iyk8t13mtc" path="res://source/player/player.tscn" id="3_xjm8s"]
+[ext_resource type="PackedScene" uid="uid://bccth4htsbm6p" path="res://source/core/information_ui.tscn" id="4_rcc1l"]
+[ext_resource type="Shader" path="res://assets/shaders/vignette.gdshader" id="5_sp8sp"]
+[ext_resource type="PackedScene" uid="uid://bwaupboxwraat" path="res://source/inventory/inventory_ui.tscn" id="6_jyt6k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1238r"]
 
@@ -14,13 +14,13 @@ background_mode = 1
 background_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0tjyn"]
-shader = ExtResource("2_mjw31")
+shader = ExtResource("5_sp8sp")
 shader_parameter/size = 0.96
 shader_parameter/smoothness = 1.0
 shader_parameter/corner_strength = 25.0
 
-[node name="Main" type="CanvasLayer"]
-script = ExtResource("1_yqr8r")
+[node name="MainUI" type="CanvasLayer"]
+script = ExtResource("1_ka4x0")
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -45,11 +45,11 @@ size_flags_horizontal = 3
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Screen" type="Control" parent="Container/Margin"]
+[node name="Canvas" type="Control" parent="Container/Margin"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ViewportContainer" type="SubViewportContainer" parent="Container/Margin/Screen"]
+[node name="ViewportContainer" type="SubViewportContainer" parent="Container/Margin/Canvas"]
 texture_filter = 1
 material = SubResource("ShaderMaterial_1238r")
 layout_mode = 1
@@ -61,22 +61,22 @@ grow_vertical = 2
 size_flags_horizontal = 3
 stretch = true
 
-[node name="Viewport" type="SubViewport" parent="Container/Margin/Screen/ViewportContainer"]
+[node name="Viewport" type="SubViewport" parent="Container/Margin/Canvas/ViewportContainer"]
 handle_input_locally = false
-size = Vector2i(2, 2)
+size = Vector2i(1152, 688)
 render_target_update_mode = 4
 
-[node name="Level" type="Node3D" parent="Container/Margin/Screen/ViewportContainer/Viewport"]
+[node name="Level" type="Node3D" parent="Container/Margin/Canvas/ViewportContainer/Viewport"]
 
-[node name="World" type="WorldEnvironment" parent="Container/Margin/Screen/ViewportContainer/Viewport/Level"]
+[node name="World" type="WorldEnvironment" parent="Container/Margin/Canvas/ViewportContainer/Viewport/Level"]
 environment = SubResource("Environment_mdpnj")
 
-[node name="Map" parent="Container/Margin/Screen/ViewportContainer/Viewport/Level" instance=ExtResource("1_sdtj2")]
+[node name="Map" parent="Container/Margin/Canvas/ViewportContainer/Viewport/Level" instance=ExtResource("2_ufxb3")]
 
-[node name="Player" parent="Container/Margin/Screen/ViewportContainer/Viewport/Level" instance=ExtResource("2_7tfq4")]
+[node name="Player" parent="Container/Margin/Canvas/ViewportContainer/Viewport/Level" instance=ExtResource("3_xjm8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13575, 0)
 
-[node name="Interface" type="Control" parent="Container/Margin/Screen"]
+[node name="Screen" type="Control" parent="Container/Margin/Canvas"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,10 +85,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="InformationInterface" parent="Container/Margin/Screen/Interface" instance=ExtResource("4_fo10k")]
+[node name="InformationUI" parent="Container/Margin/Canvas/Screen" instance=ExtResource("4_rcc1l")]
 layout_mode = 1
 
-[node name="Vignette" type="ColorRect" parent="Container/Margin/Screen"]
+[node name="Vignette" type="ColorRect" parent="Container/Margin/Canvas"]
 material = SubResource("ShaderMaterial_0tjyn")
 layout_mode = 1
 anchors_preset = 15
@@ -115,5 +115,5 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 32
 
-[node name="InventoryUI" parent="Container/SideBar/Margin" instance=ExtResource("6_nbyew")]
+[node name="InventoryUI" parent="Container/SideBar/Margin" instance=ExtResource("6_jyt6k")]
 layout_mode = 2
