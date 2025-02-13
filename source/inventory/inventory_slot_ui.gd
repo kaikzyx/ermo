@@ -1,4 +1,4 @@
-class_name InventorySlotUI extends Button
+class_name InventorySlotUI extends Panel
 
 signal selected(index: int)
 
@@ -8,11 +8,7 @@ var state: State = State.NONE: set = _set_state
 var slot_index: int = -1
 var has_item: bool = false
 
-@onready var _background: Panel = $Background
 @onready var _label: Label = $Margin/Label
-
-func _ready() -> void:
-	pressed.connect(func() -> void: select())
 
 func refresh(item: Item) -> void:
 	has_item = item != null
@@ -26,8 +22,8 @@ func _set_state(value: State) -> void:
 
 	match value:
 		State.NONE:
-			_background.self_modulate.a = 1.0
+			self_modulate.a = 1.0
 		State.HIGHLIGHT:
-			_background.self_modulate.a = 0.5
+			self_modulate.a = 0.5
 		State.SELECT:
-			_background.self_modulate.a = 0.1
+			self_modulate.a = 0.1
