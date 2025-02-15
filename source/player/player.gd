@@ -1,12 +1,13 @@
 class_name Player extends CharacterBody3D
 
-@onready var interator: Interator = $Pivot/Head/Interator
+@onready var interator: Interator = $Head/Interator
 @onready var inventory: Inventory = $Inventory
 var speed: float = 2.5
 var acceleration: float = 7.5
 var controllable: bool = true
 
-@onready var _head: Node3D = $Pivot/Head
+@onready var _head: Node3D = $Head
+@onready var _head_standard_position: Vector3 = _head.position
 var _head_shake_frequency: float = 0.005
 var _head_shake_intensity: float = 0.05
 var _head_shake_acceleration: float = 5.0
@@ -33,9 +34,9 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor():
 		var frequency: float = Time.get_ticks_msec() * _head_shake_frequency * floor(velocity.length())
-		shake = Vector3(cos(frequency / 2.0) / 2.0, sin(frequency), sin(frequency) / 2.0)
+		shake = Vector3(cos(frequency / 2.0) / 2.0, sin(frequency), sin(frequency) / 2.0) * _head_shake_intensity
 
-	_head.position = _head.position.lerp(shake * _head_shake_intensity, _head_shake_acceleration * delta)
+	_head.position = _head.position.lerp(_head_standard_position + shake, _head_shake_acceleration * delta)
 
 	# Gravity logic.
 	if not is_on_floor():

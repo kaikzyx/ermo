@@ -26,14 +26,12 @@ shape = SubResource("CapsuleShape3D_pe5mb")
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_ld0db")
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.865, -0.2)
 
-[node name="Head" type="Node3D" parent="Pivot"]
+[node name="Interator" parent="Head" instance=ExtResource("2_28pyk")]
 
-[node name="Interator" parent="Pivot/Head" instance=ExtResource("2_28pyk")]
-
-[node name="Camera" type="Camera3D" parent="Pivot/Head"]
+[node name="Camera" type="Camera3D" parent="Head"]
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("3_5tg40")
