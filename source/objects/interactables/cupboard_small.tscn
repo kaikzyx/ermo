@@ -1,0 +1,37 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtp033asgkhrf"]
+
+[ext_resource type="Script" path="res://source/objects/interactables/cupboard_small.gd" id="1_kk7wv"]
+[ext_resource type="PackedScene" uid="uid://durji13r85fax" path="res://source/interaction/interactable.tscn" id="2_x6te7"]
+[ext_resource type="Script" path="res://source/interaction/interactions/interaction.gd" id="3_1s2bh"]
+[ext_resource type="Resource" uid="uid://b4jrtjatk8baa" path="res://assets/items/key.tres" id="4_u1yjk"]
+[ext_resource type="PackedScene" uid="uid://g1fp46ffas5s" path="res://assets/models/cupboard_small.gltf" id="5_7407m"]
+[ext_resource type="Script" path="res://source/interaction/interactions/requestable.gd" id="5_g0tja"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bydd0"]
+size = Vector3(0.49942, 0.752365, 0.800312)
+
+[sub_resource type="Resource" id="Resource_7buqf"]
+script = ExtResource("5_g0tja")
+item = ExtResource("4_u1yjk")
+message_has = &"I unlocked."
+message_not_has = &"It is locked."
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ncg5"]
+size = Vector3(0.49942, 0.752365, 0.800312)
+
+[node name="CupboardSmall" type="StaticBody3D"]
+collision_mask = 0
+script = ExtResource("1_kk7wv")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000747278, 0.374657, 0.000520617)
+shape = SubResource("BoxShape3D_bydd0")
+
+[node name="Mesh" parent="." instance=ExtResource("5_7407m")]
+
+[node name="Interactable" parent="." instance=ExtResource("2_x6te7")]
+interactions = Array[ExtResource("3_1s2bh")]([SubResource("Resource_7buqf")])
+
+[node name="Collision" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000747278, 0.374657, 0.000520617)
+shape = SubResource("BoxShape3D_0ncg5")

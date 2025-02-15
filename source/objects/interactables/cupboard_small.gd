@@ -1,4 +1,4 @@
-class_name Cabinet extends StaticBody3D
+extends StaticBody3D
 
 var open: bool = false
 
