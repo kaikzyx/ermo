@@ -24,7 +24,8 @@ func _on_actor_interator_focus_entered(interactable: Interactable) -> void:
 	_label_interactable_action.show()
 
 func _on_actor_interator_focus_exited(interactable: Interactable) -> void:
-	interactable.message_changed.disconnect(_on_actor_interator_interactable_message_changed)
+	if is_instance_valid(interactable):
+		interactable.message_changed.disconnect(_on_actor_interator_interactable_message_changed)
 
 	# Clear.
 	_label_interactable_name.text = &""
