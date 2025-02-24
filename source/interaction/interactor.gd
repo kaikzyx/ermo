@@ -1,4 +1,4 @@
-class_name Interator extends RayCast3D
+class_name Interactor extends RayCast3D
 
 signal focus_entered(interactable: Interactable)
 signal focus_exited(interactable: Interactable)

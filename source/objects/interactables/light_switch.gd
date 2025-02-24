@@ -8,7 +8,7 @@ class_name LightSwitch extends Node3D
 func _ready() -> void:
 	turn(true)
 
-	_interactable.interacted.connect(func(_interator: Interator) -> void: turn(not on))
+	_interactable.interacted.connect(func(_interactor: Interactor) -> void: turn(not on))
 
 func turn(enable: bool) -> void:
 	on = enable

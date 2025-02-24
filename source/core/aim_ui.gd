@@ -6,14 +6,14 @@ class_name AimUI extends Control
 
 func _ready() -> void:
 	if is_instance_valid(Global.actor):
-		Global.actor.interator.focus_entered.connect(_on_actor_interator_focus_entered)
-		Global.actor.interator.focus_exited.connect(_on_actor_interator_focus_exited)
+		Global.actor.interactor.focus_entered.connect(_on_actor_interactor_focus_entered)
+		Global.actor.interactor.focus_exited.connect(_on_actor_interactor_focus_exited)
 
 	_label_interactable_action.hide()
 	_label_interactable_action.text = &"Press " + Global.get_prompt(&"interact") + &" to interact."
 
-func _on_actor_interator_focus_entered(interactable: Interactable) -> void:
-	interactable.message_changed.connect(_on_actor_interator_interactable_message_changed)
+func _on_actor_interactor_focus_entered(interactable: Interactable) -> void:
+	interactable.message_changed.connect(_on_actor_interactor_interactable_message_changed)
 
 	# Format the text with the message of the interactive, if any.
 	_label_interactable_message.text = &""
@@ -23,15 +23,15 @@ func _on_actor_interator_focus_entered(interactable: Interactable) -> void:
 	_label_interactable_name.text = interactable.owner.name.capitalize()
 	_label_interactable_action.show()
 
-func _on_actor_interator_focus_exited(interactable: Interactable) -> void:
+func _on_actor_interactor_focus_exited(interactable: Interactable) -> void:
 	if is_instance_valid(interactable):
-		interactable.message_changed.disconnect(_on_actor_interator_interactable_message_changed)
+		interactable.message_changed.disconnect(_on_actor_interactor_interactable_message_changed)
 
 	# Clear.
 	_label_interactable_name.text = &""
 	_label_interactable_message.text = &""
 	_label_interactable_action.hide()
 
-func _on_actor_interator_interactable_message_changed(message: StringName) -> void:
+func _on_actor_interactor_interactable_message_changed(message: StringName) -> void:
 	# Dynamically updates the text when the interactable message changes.
 	_label_interactable_message.text = &" - " + message

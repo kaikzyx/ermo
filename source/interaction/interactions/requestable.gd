@@ -4,9 +4,9 @@ class_name Requestable extends Interaction
 @export var message_has: StringName = &""
 @export var message_not_has: StringName = &""
 
-func interact(interator: Interator) -> bool:
+func interact(interactor: Interactor) -> bool:
 	if item != null:
-		var node: Node = interator.owner
+		var node: Node = interactor.owner
 
 		if node is Player:
 			if node.inventory.request(item):

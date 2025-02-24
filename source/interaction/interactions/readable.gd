@@ -4,7 +4,7 @@ class_name Readable extends Interaction
 
 var _scene_readable_ui: PackedScene = preload("res://source/interaction/readable_ui.tscn")
 
-func interact(_interator: Interator) -> bool:
+func interact(_interactor: Interactor) -> bool:
 	# Create a readable ui when interacting.
 	var readable_ui: ReadableUI = _scene_readable_ui.instantiate()
 	readable_ui.interaction = self

@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody3D
 
-@onready var interator: Interator = $Head/Vision/Interator
+@onready var interactor: Interactor = $Head/Vision/Interactor
 @onready var inventory: Inventory = $Inventory
 @onready var _head: Node3D = $Head
 @onready var _vision: Node3D = $Head/Vision

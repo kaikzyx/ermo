@@ -38,7 +38,7 @@ func _set_resting(value: bool) -> void:
 
 	if is_instance_valid(Global.actor):
 		Global.actor.controllable = not resting
-		Global.actor.interator.enabled = not resting
+		Global.actor.interactor.enabled = not resting
 
 func _on_processor_started_processing() -> void:
 	processor.show()

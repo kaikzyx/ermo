@@ -30,8 +30,8 @@ func _refresh_item() -> void:
 		_collision.shape = null
 		_interactable_collision.shape = null
 
-func _on_interactable_interacted(interator: Interator) -> void:
-	var node: Node = interator.owner
+func _on_interactable_interacted(interactor: Interactor) -> void:
+	var node: Node = interactor.owner
 	if node is Player: node.inventory.insert(item)
 
 	queue_free()
