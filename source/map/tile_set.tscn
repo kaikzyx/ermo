@@ -1,8 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://ytv111l40sqa"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_urb6k"]
+size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4dd2i"]
+size = Vector3(0.5, 0.5, 0.5)
 
 [node name="TileSet" type="Node3D"]
 

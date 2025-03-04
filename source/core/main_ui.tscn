@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ca0s6nwdkrvfw"]
+[gd_scene load_steps=11 format=3 uid="uid://ca0s6nwdkrvfw"]
 
 [ext_resource type="Script" path="res://source/core/main_ui.gd" id="1_ka4x0"]
 [ext_resource type="PackedScene" uid="uid://bdp78c0tt0nxf" path="res://source/map/map.tscn" id="2_ufxb3"]
@@ -10,10 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bwaupboxwraat" path="res://source/inventory/inventory_ui.tscn" id="6_jyt6k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1238r"]
-
-[sub_resource type="Environment" id="Environment_mdpnj"]
-background_mode = 1
-background_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0tjyn"]
 shader = ExtResource("5_sp8sp")
@@ -65,13 +61,11 @@ stretch = true
 
 [node name="Viewport" type="SubViewport" parent="Container/Margin/Canvas/ViewportContainer"]
 handle_input_locally = false
+positional_shadow_atlas_size = 16384
 size = Vector2i(1152, 688)
 render_target_update_mode = 4
 
 [node name="Level" type="Node3D" parent="Container/Margin/Canvas/ViewportContainer/Viewport"]
-
-[node name="World" type="WorldEnvironment" parent="Container/Margin/Canvas/ViewportContainer/Viewport/Level"]
-environment = SubResource("Environment_mdpnj")
 
 [node name="Map" parent="Container/Margin/Canvas/ViewportContainer/Viewport/Level" instance=ExtResource("2_ufxb3")]
 
