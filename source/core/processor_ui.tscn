@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8b4msvg6dysm"]
 
-[ext_resource type="Script" path="res://source/core/processor_ui.gd" id="1_qvi35"]
+[ext_resource type="Script" uid="uid://b3omcuni8thsu" path="res://source/core/processor_ui.gd" id="1_qvi35"]
 
 [node name="ProcessorUI" type="Control"]
 layout_mode = 3

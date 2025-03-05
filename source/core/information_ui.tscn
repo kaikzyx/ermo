@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bccth4htsbm6p"]
 
-[ext_resource type="Script" path="res://source/core/information_ui.gd" id="1_vac74"]
+[ext_resource type="Script" uid="uid://4cbe755puk8c" path="res://source/core/information_ui.gd" id="1_vac74"]
 
 [node name="InformationUI" type="MarginContainer"]
 anchors_preset = 15

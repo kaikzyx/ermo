@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://dtp033asgkhrf"]
 
-[ext_resource type="Script" path="res://source/objects/interactables/cupboard_small.gd" id="1_kk7wv"]
+[ext_resource type="Script" uid="uid://drg15wmn8apef" path="res://source/objects/interactables/cupboard_small.gd" id="1_kk7wv"]
 [ext_resource type="PackedScene" uid="uid://durji13r85fax" path="res://source/interaction/interactable.tscn" id="2_x6te7"]
-[ext_resource type="Script" path="res://source/interaction/interactions/interaction.gd" id="3_1s2bh"]
+[ext_resource type="Script" uid="uid://cptjm7y8bbdcv" path="res://source/interaction/interactions/interaction.gd" id="3_1s2bh"]
 [ext_resource type="Resource" uid="uid://b4jrtjatk8baa" path="res://assets/items/key.tres" id="4_u1yjk"]
 [ext_resource type="PackedScene" uid="uid://g1fp46ffas5s" path="res://assets/models/cupboard_small.gltf" id="5_7407m"]
-[ext_resource type="Script" path="res://source/interaction/interactions/requestable.gd" id="5_g0tja"]
+[ext_resource type="Script" uid="uid://cf6ggden4yv4j" path="res://source/interaction/interactions/requestable.gd" id="5_g0tja"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bydd0"]
 size = Vector3(0.49942, 0.752365, 0.800312)

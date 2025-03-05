@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c2k61d5pgd0l5"]
 
-[ext_resource type="Script" path="res://source/core/aim_ui.gd" id="1_mixqu"]
+[ext_resource type="Script" uid="uid://bj7nficxpdw4g" path="res://source/core/aim_ui.gd" id="1_mixqu"]
 
 [node name="AimUI" type="Control"]
 layout_mode = 3

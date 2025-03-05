@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dae0k42pdr8i3"]
 
-[ext_resource type="Script" path="res://source/objects/item_object/item_object.gd" id="1_7buej"]
+[ext_resource type="Script" uid="uid://xgtgm3wgngc2" path="res://source/objects/item_object/item_object.gd" id="1_7buej"]
 [ext_resource type="PackedScene" uid="uid://durji13r85fax" path="res://source/interaction/interactable.tscn" id="2_rrhaf"]
 
 [node name="ItemObject" type="RigidBody3D"]
