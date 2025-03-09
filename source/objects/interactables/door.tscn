@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://btcmu80le7vut"]
+
+[ext_resource type="PackedScene" uid="uid://bmk4rychlst27" path="res://assets/models/door.gltf" id="1_5fgjk"]
+[ext_resource type="PackedScene" uid="uid://durji13r85fax" path="res://source/interaction/interactable.tscn" id="2_arx7o"]
+[ext_resource type="Material" uid="uid://ca2gsap2sgd21" path="res://assets/materials/interactable_material.tres" id="2_tfckp"]
+[ext_resource type="Script" uid="uid://cptjm7y8bbdcv" path="res://source/interaction/interactions/interaction.gd" id="3_h76ol"]
+[ext_resource type="Script" uid="uid://bvg40r28l6bnt" path="res://source/interaction/interactions/messageable.gd" id="4_tfckp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h76ol"]
+size = Vector3(0.5, 2, 1)
+
+[sub_resource type="Resource" id="Resource_1tqd5"]
+script = ExtResource("4_tfckp")
+message = "The door is locked."
+metadata/_custom_type_script = "uid://bvg40r28l6bnt"
+
+[node name="Door" type="StaticBody3D"]
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_h76ol")
+
+[node name="Mesh" parent="." instance=ExtResource("1_5fgjk")]
+
+[node name="Base" parent="Mesh" index="0"]
+surface_material_override/0 = ExtResource("2_tfckp")
+
+[node name="Door" parent="Mesh" index="1"]
+surface_material_override/0 = ExtResource("2_tfckp")
+
+[node name="Interactable" parent="." instance=ExtResource("2_arx7o")]
+interactions = Array[ExtResource("3_h76ol")]([SubResource("Resource_1tqd5")])
+
+[node name="Collision" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_h76ol")
+
+[editable path="Mesh"]

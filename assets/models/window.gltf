@@ -15,7 +15,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"cupboard"
+			"name":"Base"
 		}
 	],
 	"materials":[
@@ -24,9 +24,9 @@
 			"name":"Material",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					1,
-					0,
-					0,
+					0.800000011920929,
+					0.800000011920929,
+					0.800000011920929,
 					1
 				],
 				"metallicFactor":0,
@@ -54,68 +54,68 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":1211,
+			"count":80,
 			"max":[
-				0.3099253177642822,
-				0.7499998807907104,
-				0.4000000059604645
+				0.25,
+				0.5,
+				0.5
 			],
 			"min":[
-				-0.2513236999511719,
-				0,
-				-0.4000000059604645
+				-0.25,
+				-0.5,
+				-0.5
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":1211,
+			"count":80,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":1211,
+			"count":80,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":1920,
+			"count":168,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":14532,
+			"byteLength":960,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":14532,
-			"byteOffset":14532,
+			"byteLength":960,
+			"byteOffset":960,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":9688,
-			"byteOffset":29064,
+			"byteLength":640,
+			"byteOffset":1920,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":3840,
-			"byteOffset":38752,
+			"byteLength":336,
+			"byteOffset":2560,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":42592,
-			"uri":"cupboard_small.bin"
+			"byteLength":2896,
+			"uri":"window.bin"
 		}
 	]
 }

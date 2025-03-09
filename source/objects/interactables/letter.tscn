@@ -1,31 +1,31 @@
 [gd_scene load_steps=8 format=3 uid="uid://c7ln0150vyphq"]
 
+[ext_resource type="PackedScene" uid="uid://dajj2b6f5vr4v" path="res://assets/models/letter.gltf" id="1_4bmtp"]
 [ext_resource type="PackedScene" uid="uid://durji13r85fax" path="res://source/interaction/interactable.tscn" id="1_sgo72"]
 [ext_resource type="Script" uid="uid://cptjm7y8bbdcv" path="res://source/interaction/interactions/interaction.gd" id="2_ktib5"]
+[ext_resource type="Material" uid="uid://ca2gsap2sgd21" path="res://assets/materials/interactable_material.tres" id="2_wsbj7"]
 [ext_resource type="Script" uid="uid://of2t5mxsv4dk" path="res://source/interaction/interactions/readable.gd" id="3_uwuej"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcwni"]
-albedo_color = Color(1, 1, 0.498039, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hsi47"]
-material = SubResource("StandardMaterial3D_fcwni")
-size = Vector3(0.21, 0.148, 0.01)
 
 [sub_resource type="Resource" id="Resource_raku8"]
 script = ExtResource("3_uwuej")
 content = "Sic mundus creatus est."
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wqsol"]
-size = Vector3(0.21, 0.148, 0.01)
+size = Vector3(0.015, 0.15, 0.2)
 
 [node name="Letter" type="Node3D"]
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_hsi47")
+[node name="Mesh" parent="." instance=ExtResource("1_4bmtp")]
+
+[node name="Emblem" parent="Mesh" index="1"]
+surface_material_override/0 = ExtResource("2_wsbj7")
 
 [node name="Interactable" parent="." instance=ExtResource("1_sgo72")]
 message = &"Read."
 interactions = Array[ExtResource("2_ktib5")]([SubResource("Resource_raku8")])
 
 [node name="Collision" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008, 0, 0)
 shape = SubResource("BoxShape3D_wqsol")
+
+[editable path="Mesh"]

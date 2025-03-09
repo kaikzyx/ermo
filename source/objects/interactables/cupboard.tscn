@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtp033asgkhrf"]
+[gd_scene load_steps=11 format=3 uid="uid://dtp033asgkhrf"]
 
-[ext_resource type="Script" uid="uid://drg15wmn8apef" path="res://source/objects/interactables/cupboard_small.gd" id="1_kk7wv"]
+[ext_resource type="Script" uid="uid://duwvfy1acp8wv" path="res://source/objects/interactables/cupboard.gd" id="1_rj4it"]
 [ext_resource type="PackedScene" uid="uid://durji13r85fax" path="res://source/interaction/interactable.tscn" id="2_x6te7"]
 [ext_resource type="Script" uid="uid://cptjm7y8bbdcv" path="res://source/interaction/interactions/interaction.gd" id="3_1s2bh"]
+[ext_resource type="Material" uid="uid://ca2gsap2sgd21" path="res://assets/materials/interactable_material.tres" id="3_5dg02"]
 [ext_resource type="Resource" uid="uid://b4jrtjatk8baa" path="res://assets/items/key.tres" id="4_u1yjk"]
-[ext_resource type="PackedScene" uid="uid://g1fp46ffas5s" path="res://assets/models/cupboard_small.gltf" id="5_7407m"]
+[ext_resource type="PackedScene" uid="uid://eadi8ivbrg5g" path="res://assets/models/cupboard.gltf" id="5_7407m"]
 [ext_resource type="Script" uid="uid://cf6ggden4yv4j" path="res://source/interaction/interactions/requestable.gd" id="5_g0tja"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bydd0"]
-size = Vector3(0.49942, 0.752365, 0.800312)
+size = Vector3(0.545, 0.8, 0.8)
 
 [sub_resource type="Resource" id="Resource_7buqf"]
 script = ExtResource("5_g0tja")
@@ -17,21 +18,35 @@ message_has = &"I unlocked."
 message_not_has = &"It is locked."
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ncg5"]
-size = Vector3(0.49942, 0.752365, 0.800312)
+size = Vector3(0.45, 0.65, 0.7)
 
-[node name="CupboardSmall" type="StaticBody3D"]
+[node name="Cupboard" type="StaticBody3D"]
 collision_mask = 0
-script = ExtResource("1_kk7wv")
+script = ExtResource("1_rj4it")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000747278, 0.374657, 0.000520617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0229446, 0.4, 0.001)
 shape = SubResource("BoxShape3D_bydd0")
 
 [node name="Mesh" parent="." instance=ExtResource("5_7407m")]
+
+[node name="Base" parent="Mesh" index="0"]
+surface_material_override/0 = ExtResource("3_5dg02")
+
+[node name="Drawer1" parent="Mesh" index="1"]
+surface_material_override/0 = ExtResource("3_5dg02")
+
+[node name="Drawer2" parent="Mesh" index="2"]
+surface_material_override/0 = ExtResource("3_5dg02")
+
+[node name="Drawer3" parent="Mesh" index="3"]
+surface_material_override/0 = ExtResource("3_5dg02")
 
 [node name="Interactable" parent="." instance=ExtResource("2_x6te7")]
 interactions = Array[ExtResource("3_1s2bh")]([SubResource("Resource_7buqf")])
 
 [node name="Collision" type="CollisionShape3D" parent="Interactable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000747278, 0.374657, 0.000520617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0304051, 0.42584, 0.000364631)
 shape = SubResource("BoxShape3D_0ncg5")
+
+[editable path="Mesh"]
