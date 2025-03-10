@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdp78c0tt0nxf"]
+[gd_scene load_steps=9 format=3 uid="uid://bdp78c0tt0nxf"]
 
 [ext_resource type="MeshLibrary" uid="uid://do7lmos0pxpbn" path="res://assets/tile_set.tres" id="1_rkriy"]
 [ext_resource type="PackedScene" uid="uid://cak0xen2x4vpj" path="res://source/objects/interactables/light_switch.tscn" id="2_4ohdw"]
 [ext_resource type="PackedScene" uid="uid://c4u5318gr0unv" path="res://source/objects/light_buld.tscn" id="3_eeqq3"]
 [ext_resource type="PackedScene" uid="uid://c7ln0150vyphq" path="res://source/objects/interactables/letter.tscn" id="4_p4yew"]
-[ext_resource type="PackedScene" uid="uid://dae0k42pdr8i3" path="res://source/objects/item_object/item_object.tscn" id="6_hk1ym"]
-[ext_resource type="Resource" uid="uid://b4jrtjatk8baa" path="res://assets/items/key.tres" id="7_6eg0r"]
 [ext_resource type="PackedScene" uid="uid://dtp033asgkhrf" path="res://source/objects/interactables/cupboard.tscn" id="7_ohnin"]
 [ext_resource type="PackedScene" uid="uid://btcmu80le7vut" path="res://source/objects/interactables/door.tscn" id="8_4ts0e"]
+[ext_resource type="PackedScene" uid="uid://c40yg5gm5ed8t" path="res://source/items/physical/physical_key.tscn" id="8_wk1u6"]
 [ext_resource type="PackedScene" uid="uid://butrwrbq4bucl" path="res://source/objects/window.tscn" id="9_wk1u6"]
 
 [node name="Map" type="Node3D"]
@@ -40,6 +39,5 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 [node name="Window" parent="." instance=ExtResource("9_wk1u6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 1.5, -1)
 
-[node name="Key" parent="." instance=ExtResource("6_hk1ym")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1.6111, 0.0193804, -1.83392)
-item = ExtResource("7_6eg0r")
+[node name="PhysicalKey" parent="." instance=ExtResource("8_wk1u6")]
+transform = Transform3D(-3.09086e-08, -0.707107, 0.707107, 1, -4.37114e-08, 0, 3.09086e-08, 0.707107, 0.707107, -1.5, 0.01, -1.75)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://c40yg5gm5ed8t"]
+
+[ext_resource type="Script" uid="uid://xgtgm3wgngc2" path="res://source/items/physical/physical_item.gd" id="1_bkf3s"]
+[ext_resource type="Resource" uid="uid://b4jrtjatk8baa" path="res://assets/items/key.tres" id="2_gpiqu"]
+[ext_resource type="PackedScene" uid="uid://cc4sihggh4y8p" path="res://assets/models/key.gltf" id="3_prduu"]
+[ext_resource type="Material" uid="uid://ca2gsap2sgd21" path="res://assets/materials/interactable_material.tres" id="4_b840i"]
+[ext_resource type="PackedScene" uid="uid://durji13r85fax" path="res://source/interaction/interactable.tscn" id="5_cluhf"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0oi1f"]
+points = PackedVector3Array(0.0499902, 0.00999804, 0.0499933, 0.025, 0.00999804, 0.0933013, 0.0499902, -0.01, 0.0499933, 0.0299922, 0.01, -0.0833282, 0.0299922, 0.01, -0.0433263, 0.025, 0.01, 0.00668525, -0.025, 0.00999804, 0.0933013, 0.025, -0.01, 0.0933013, 0.0105619, 0.01, 0.031691, 0.0299922, -0.01, -0.0833282, 0.00999413, 0.01, -0.0933013, -0.025, -0.01, 0.0933013, -0.0100039, 0.01, 0.00668525, -0.05, 0.00999804, 0.0499933, 0.00999413, -0.01, -0.0933013, -0.0100039, 0.01, -0.0933013, -0.05, -0.01, 0.0499933, -0.0100039, -0.01, -0.0933013)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_63pwc"]
+size = Vector3(0.02, 0.1, 0.19)
+
+[node name="PhysicalKey" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 9
+mass = 0.1
+script = ExtResource("1_bkf3s")
+_item = ExtResource("2_gpiqu")
+
+[node name="Mesh" parent="." instance=ExtResource("3_prduu")]
+
+[node name="Base" parent="Mesh" index="0"]
+surface_material_override/0 = ExtResource("4_b840i")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_0oi1f")
+
+[node name="Interactable" parent="." instance=ExtResource("5_cluhf")]
+message = &"Pick up."
+
+[node name="Collision" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49012e-08, 3.65898e-05)
+shape = SubResource("BoxShape3D_63pwc")
+
+[editable path="Mesh"]
