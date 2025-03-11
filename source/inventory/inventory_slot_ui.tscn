@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cb2osp2rit5to" path="res://source/inventory/inventory_slot_ui.gd" id="1_oqn25"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee6fu"]
-bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+bg_color = Color(0.25098, 0.25098, 0.25098, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -13,29 +13,27 @@ corner_radius_bottom_left = 16
 custom_minimum_size = Vector2(104, 64)
 offset_right = 104.0
 offset_bottom = 64.0
+pivot_offset = Vector2(52, 32)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ee6fu")
 script = ExtResource("1_oqn25")
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Base" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -3.0
-offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(52, 32)
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Label" type="Label" parent="Margin"]
-custom_minimum_size = Vector2(64, 54)
+[node name="ItemIcon" type="TextureRect" parent="Base"]
+texture_filter = 1
 layout_mode = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 1
+stretch_mode = 5

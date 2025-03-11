@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://b4jrtjatk8baa"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b4jrtjatk8baa"]
 
 [ext_resource type="Script" uid="uid://b8vr41sp52kmg" path="res://source/items/item.gd" id="1_42tpf"]
+[ext_resource type="Texture2D" uid="uid://b5ha1jce6g1e3" path="res://assets/images/key.png" id="1_w4f0c"]
 
 [resource]
 script = ExtResource("1_42tpf")
 name = &"Key"
+icon = ExtResource("1_w4f0c")
