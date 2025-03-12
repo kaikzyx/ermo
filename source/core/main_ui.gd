@@ -5,7 +5,7 @@ class_name MainUI extends CanvasLayer
 var resting: bool = false: set = _set_resting
 
 @onready var _viewport: SubViewport = $Container/Margin/Canvas/ViewportContainer/Viewport
-@onready var _aim_ui: AimUI = $Container/Margin/Canvas/Screen/AimUI
+@onready var _hud: HUD = $Container/Margin/Canvas/Screen/HUD
 @onready var _inventory_ui: InventoryUI = $Container/SideBar/Margin/InventoryUI
 
 func _ready() -> void:
@@ -34,7 +34,7 @@ func _set_resting(value: bool) -> void:
 	if processor.processing() and value == false: return
 
 	resting = value
-	_aim_ui.visible = not resting
+	_hud.visible = not resting
 
 	if is_instance_valid(Global.actor):
 		Global.actor.controllable = not resting

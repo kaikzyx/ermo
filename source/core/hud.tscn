@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2k61d5pgd0l5"]
+[gd_scene load_steps=3 format=3 uid="uid://c2k61d5pgd0l5"]
 
-[ext_resource type="Script" uid="uid://bj7nficxpdw4g" path="res://source/core/aim_ui.gd" id="1_mixqu"]
+[ext_resource type="Script" uid="uid://bj7nficxpdw4g" path="res://source/core/hud.gd" id="1_mixqu"]
+[ext_resource type="Texture2D" uid="uid://cuxk2cjlxf1o0" path="res://assets/images/crosshair.png" id="2_2prs3"]
 
-[node name="AimUI" type="Control"]
+[node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,20 +12,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mixqu")
 
-[node name="Reticula" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(2, 2)
+[node name="Crosshair" type="Control" parent="."]
+texture_filter = 1
 layout_mode = 1
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 640.0
 offset_top = 360.0
-offset_right = -638.0
-offset_bottom = -358.0
+offset_right = -640.0
+offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="Icon" type="Sprite2D" parent="Crosshair"]
+texture = ExtResource("2_2prs3")
 
 [node name="InteractionContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

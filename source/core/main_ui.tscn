@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bxd138o4w8drw" path="res://source/core/main_ui.gd" id="1_ka4x0"]
 [ext_resource type="PackedScene" uid="uid://bdp78c0tt0nxf" path="res://source/map/map.tscn" id="2_ufxb3"]
 [ext_resource type="PackedScene" uid="uid://dj0iyk8t13mtc" path="res://source/player/player.tscn" id="3_xjm8s"]
-[ext_resource type="PackedScene" uid="uid://c2k61d5pgd0l5" path="res://source/core/aim_ui.tscn" id="4_cta50"]
+[ext_resource type="PackedScene" uid="uid://c2k61d5pgd0l5" path="res://source/core/hud.tscn" id="4_cta50"]
 [ext_resource type="PackedScene" uid="uid://bccth4htsbm6p" path="res://source/core/information_ui.tscn" id="4_rcc1l"]
 [ext_resource type="Shader" uid="uid://bbpggt6kkkd72" path="res://assets/shaders/vignette.gdshader" id="5_sp8sp"]
 [ext_resource type="PackedScene" uid="uid://b8b4msvg6dysm" path="res://source/core/processor_ui.tscn" id="6_hwevm"]
@@ -62,7 +62,7 @@ stretch = true
 [node name="Viewport" type="SubViewport" parent="Container/Margin/Canvas/ViewportContainer"]
 handle_input_locally = false
 positional_shadow_atlas_size = 16384
-size = Vector2i(2, 2)
+size = Vector2i(1136, 688)
 render_target_update_mode = 4
 
 [node name="Level" type="Node3D" parent="Container/Margin/Canvas/ViewportContainer/Viewport"]
@@ -81,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="AimUI" parent="Container/Margin/Canvas/Screen" instance=ExtResource("4_cta50")]
+[node name="HUD" parent="Container/Margin/Canvas/Screen" instance=ExtResource("4_cta50")]
 layout_mode = 1
 
 [node name="ProcessorUI" parent="Container/Margin/Canvas/Screen" instance=ExtResource("6_hwevm")]
