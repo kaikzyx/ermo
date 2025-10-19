@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Coexistence"
+config/name="Ermo"
 run/main_scene="res://source/core/main_ui.tscn"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
@@ -24,6 +24,10 @@ Global="*res://source/global.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Ermo"
 
 [editor_plugins]
 
